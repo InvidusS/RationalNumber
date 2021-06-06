@@ -3,7 +3,7 @@
 
 class RationalTest : public ::testing::Test{
 protected:
-    Rational r2 {2,11}, r3 {1,-3}, r5 {18,6}, r7 {}, r9 {4,1}, r11 {3,6}, r13 {1,3}, r15 {3,5}, r17 {3,7}, r19 {r11};
+    Rational r2 {2,11}, r3 {1,-3}, r5 {18,6}, r7 {}, r9 {4,1};
 
     Rational res1 = 3 + r2 * r3;
     Rational res2 = (3 + r2) * r3;
@@ -49,39 +49,39 @@ TEST_F(RationalTest, getDenominatorTest){
 }
 
 TEST_F(RationalTest, additionTest){
-    EXPECT_EQ(Rational(15,18), r11 + r13);
+    EXPECT_EQ(Rational(15,18), Rational(3,6) + Rational(1,3));
 }
 
 TEST_F(RationalTest, subtractionTest){
-    EXPECT_EQ(Rational(3,18), r11 - r13);
+    EXPECT_EQ(Rational(3,18), Rational(3,6) - Rational(1,3));
 }
 
 TEST_F(RationalTest, multiplicationTest){
-    EXPECT_EQ(Rational(3,18), r11 * r13);
+    EXPECT_EQ(Rational(3,18), Rational(3,6) * Rational(1,3));
 }
 
 TEST_F(RationalTest, divisionTest){
-    EXPECT_EQ(Rational(9,6), r11 / r13);
+    EXPECT_EQ(Rational(9,6), Rational(3,6) / Rational(1,3));
 }
 
 TEST_F(RationalTest, equalOperatorTest){
-    EXPECT_TRUE(r11 == r19);
+    EXPECT_TRUE(Rational(3,6) == Rational(3,6));
 }
 
 TEST_F(RationalTest, lessOrEqualOperatorTest){
-    EXPECT_TRUE(r11 <= r19);
-    EXPECT_TRUE(r11 <= r15);
+    EXPECT_TRUE(Rational(3,6) <= Rational(3,6));
+    EXPECT_TRUE(Rational(3,6) <= Rational(3,5));
 }
 
 TEST_F(RationalTest, greaterOrEqualOperatorTest){
-    EXPECT_TRUE(r11 >= r19);
-    EXPECT_TRUE(r11 >= r17);
+    EXPECT_TRUE(Rational(3,6) >= Rational(3,6));
+    EXPECT_TRUE(Rational(3,6) >= Rational(3,7));
 }
 
 TEST_F(RationalTest, lessOperatorTest){
-    EXPECT_TRUE(r11 < r15);
+    EXPECT_TRUE(Rational(3,6) < Rational(3,5));
 }
 
 TEST_F(RationalTest, greaterOperatorTest){
-    EXPECT_TRUE(r11 > r17);
+    EXPECT_TRUE(Rational(3,6) > Rational(3,7));
 }
